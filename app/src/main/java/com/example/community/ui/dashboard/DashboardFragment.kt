@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.community.Event
 import com.example.community.EventAdapter
-import com.example.community.EventItemDecoration
+//import com.example.community.EventItemDecoration
 import com.example.community.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
@@ -23,7 +23,7 @@ class DashboardFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding.recyclerView.addItemDecoration(EventItemDecoration(20)) // 20dp space
+       // binding.recyclerView.addItemDecoration(EventItemDecoration(20)) // 20dp space
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -45,7 +45,7 @@ class DashboardFragment : Fragment() {
         binding.recyclerView.adapter = EventAdapter(testEvents)
 
         // Add spacing between events (using custom ItemDecoration)
-        binding.recyclerView.addItemDecoration(EventItemDecoration(20)) // Adds 20dp space
+        //binding.recyclerView.addItemDecoration(EventItSemDecoration(20)) // Adds 20dp space
 
         // Add divider line between items
         val dividerItemDecoration =
