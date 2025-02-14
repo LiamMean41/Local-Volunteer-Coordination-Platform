@@ -48,15 +48,13 @@ class DashboardFragment : Fragment() {
         binding.recyclerView.addItemDecoration(EventItemDecoration(20)) // Adds 20dp space
 
         // Add divider line between items
-        val dividerItemDecoration = DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+        val dividerItemDecoration =
+            DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
         binding.recyclerView.addItemDecoration(dividerItemDecoration)
         Log.d("DashboardFragment", "RecyclerView setup completed")
 
 
     }
-
-
-
 
     override fun onDestroyView() {
         super.onDestroyView()
