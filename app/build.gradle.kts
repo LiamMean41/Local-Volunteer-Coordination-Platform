@@ -48,6 +48,17 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.room.common)
+    implementation(libs.androidx.room.compiler)
+
+    implementation("org.jetbrains:annotations:13.0")
+    implementation(libs.androidx.room.ktx)
+
+    configurations.all {
+        exclude(group = "com.intellij", module = "annotations")
+    }
+
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
