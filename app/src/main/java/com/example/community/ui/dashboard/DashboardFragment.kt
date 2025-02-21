@@ -36,7 +36,7 @@ class DashboardFragment : Fragment() {
     }
 
     private fun fetchPosts() {
-        val url = "https://192.168.0.203:5000/posts" // Replace with your Flask server IP
+        val url = "https://driven-gnu-ample.ngrok-free.app/posts" // Replace with your Flask server IP
         val requestQueue: RequestQueue = Volley.newRequestQueue(requireContext())
         val jsonArrayRequest = JsonArrayRequest(
             Request.Method.GET, url, null,
