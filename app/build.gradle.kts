@@ -40,6 +40,7 @@ android {
 
 dependencies {
 
+    implementation("com.android.volley:volley:1.2.1")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -57,7 +58,6 @@ dependencies {
     configurations.all {
         exclude(group = "com.intellij", module = "annotations")
     }
-
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

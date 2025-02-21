@@ -1,17 +1,19 @@
 package com.example.community.ui.dashboard
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.community.Event
-import com.example.community.EventAdapter
-//import com.example.community.EventItemDecoration
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.Volley
 import com.example.community.databinding.FragmentDashboardBinding
+import org.json.JSONArray
 
 class DashboardFragment : Fragment() {
 
@@ -19,11 +21,9 @@ class DashboardFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(
-
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-       // binding.recyclerView.addItemDecoration(EventItemDecoration(20)) // 20dp space
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -31,29 +31,35 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Sample events
-        val testEvents = listOf(
-            Event(1, "Community Cleanup", "Join us for a neighborhood cleanup."),
-            Event(2, "Tech Meetup", "Discuss the latest trends in technology."),
-            Event(3, "Yoga Session", "Relax and unwind with a guided yoga session."),
-            Event(4, "Food Drive", "Help collect food for those in need."),
-            Event(5, "Coding Workshop", "Learn how to build an Android app!")
+        // Call function to fetch posts
+        fetchPosts()
+    }
+
+    private fun fetchPosts() {
+        val url = "https://192.168.0.203:5000/posts" // Replace with your Flask server IP
+        val requestQueue: RequestQueue = Volley.newRequestQueue(requireContext())
+        val jsonArrayRequest = JsonArrayRequest(
+            Request.Method.GET, url, null,
+            { response: JSONArray ->
+
+                showToast(requireContext(), "Attempting to connect!")
+                for (i in 0 until response.length()) {
+                    val post = response.getJSONObject(i)
+                    Log.d("SQLite Server", "Title: ${post.getString("title")}")
+                }
+                showToast(requireContext(), "✅ Connected to database successfully!")
+            },
+            { error ->
+                Log.e("Error", "Failed to fetch posts: ${error.message}")
+                showToast(requireContext(), "❌ Failed to connect to database!")
+            }
         )
 
-        // Set up RecyclerView
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerView.adapter = EventAdapter(testEvents)
+        requestQueue.add(jsonArrayRequest)
+    }
 
-        // Add spacing between events (using custom ItemDecoration)
-        //binding.recyclerView.addItemDecoration(EventItSemDecoration(20)) // Adds 20dp space
-
-        // Add divider line between items
-        val dividerItemDecoration =
-            DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
-        binding.recyclerView.addItemDecoration(dividerItemDecoration)
-        Log.d("DashboardFragment", "RecyclerView setup completed")
-
-
+    private fun showToast(context: Context, message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {
