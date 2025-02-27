@@ -1,6 +1,7 @@
 package com.example.community.ui.dashboard
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -38,7 +38,7 @@ class PostAdapter(private var posts: List<Post>) :
     var onItemClick: ((Post) -> Unit)? = null
 
     inner class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        // Ensure recycler_view_item_1.xml has a TextView with the ID "postTitle"
+        // Make sure recycler_view_item_1.xml has a TextView with the ID "postTitle"
         val titleTextView: TextView = itemView.findViewById(R.id.postTitle)
 
         init {
@@ -92,9 +92,9 @@ class DashboardFragment : Fragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = postAdapter
 
-        // Set the click listener to show event details
+        // Set the click listener to navigate to the details view
         postAdapter.onItemClick = { post ->
-            showPostDetails(post)
+            navigateToPostDetail(post)
         }
 
         // Fetch posts from the server
@@ -134,18 +134,15 @@ class DashboardFragment : Fragment() {
         requestQueue.add(jsonArrayRequest)
     }
 
-    // Show full details of a post in an AlertDialog
-    private fun showPostDetails(post: Post) {
-        AlertDialog.Builder(requireContext())
-            .setTitle(post.title)
-            .setMessage(
-                "Description: ${post.description}\n" +
-                        "Date: ${post.date}\n" +
-                        "Time: ${post.time}\n" +
-                        "Location: ${post.location}"
-            )
-            .setPositiveButton("OK", null)
-            .show()
+    // Navigate to the detail view (new Activity) for the given post
+    private fun navigateToPostDetail(post: Post) {
+        val intent = Intent(requireContext(), PostDetailActivity::class.java)
+        intent.putExtra("title", post.title)
+        intent.putExtra("description", post.description)
+        intent.putExtra("date", post.date)
+        intent.putExtra("time", post.time)
+        intent.putExtra("location", post.location)
+        startActivity(intent)
     }
 
     private fun showToast(context: Context, message: String) {
