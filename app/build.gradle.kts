@@ -34,6 +34,7 @@ android {
         jvmTarget = "11"
     }
     buildFeatures {
+        dataBinding = true
         viewBinding = true
     }
 }
@@ -51,6 +52,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.room.common)
     implementation(libs.androidx.room.compiler)
+    implementation ("com.squareup.okhttp3:okhttp:4.9.3")
 
     implementation("org.jetbrains:annotations:13.0")
     implementation(libs.androidx.room.ktx)
