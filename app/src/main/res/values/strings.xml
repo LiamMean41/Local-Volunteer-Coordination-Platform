@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Community</string>
+    <string name="app_name">EventHive</string>
     <string name="title_profile">Profile</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
