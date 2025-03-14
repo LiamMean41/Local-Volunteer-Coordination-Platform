@@ -118,6 +118,16 @@
                         android:textColor="@android:color/black" />
                 </LinearLayout>
 
+                <ImageButton
+                    android:id="@+id/btnSaveEvent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@android:drawable/ic_notification_overlay"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:tint="@android:color/black"
+                    android:contentDescription="Save Event" />
+
+
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>

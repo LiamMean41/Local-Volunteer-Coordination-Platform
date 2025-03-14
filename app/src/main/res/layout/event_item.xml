@@ -32,6 +32,8 @@
             android:text="Event Description"
             android:textSize="14sp" />
 
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
