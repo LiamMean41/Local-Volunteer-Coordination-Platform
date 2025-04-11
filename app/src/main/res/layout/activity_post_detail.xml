@@ -3,129 +3,135 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFEB3B"
     android:fillViewport="true"
-    android:background="@android:color/white"
     android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:background="#FFEB3B"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <!-- Event Title -->
         <TextView
             android:id="@+id/detailTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Event Title"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"
             android:gravity="center"
-            android:paddingBottom="8dp" />
+            android:paddingBottom="8dp"
+            android:text="Event Title"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <!-- Event Description -->
         <TextView
             android:id="@+id/detailDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="This is a brief description of the event, giving users a quick overview of what to expect."
-            android:textSize="16sp"
-            android:textColor="@android:color/darker_gray"
             android:gravity="center"
-            android:paddingBottom="16dp" />
+            android:paddingBottom="16dp"
+            android:text="This is a brief description of the event, giving users a quick overview of what to expect."
+            android:textColor="@android:color/darker_gray"
+            android:textSize="16sp" />
 
         <!-- CardView for Event Details -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp"
+            android:layout_marginTop="8dp"
             android:padding="16dp"
-            android:layout_marginTop="8dp">
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#FDFDFD"
+                android:backgroundTint="#F7E669"
                 android:orientation="vertical">
 
                 <!-- Date -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="#F8E777"
                     android:orientation="horizontal"
                     android:paddingBottom="8dp">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
+                        android:layout_marginEnd="8dp"
                         android:src="@android:drawable/ic_menu_my_calendar"
-                        android:tint="@android:color/black"
-                        android:layout_marginEnd="8dp" />
+                        android:tint="@android:color/black" />
 
                     <TextView
                         android:id="@+id/detailDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Date: March 12, 2025"
-                        android:textSize="16sp"
-                        android:textColor="@android:color/black" />
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <!-- Time -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="#F8E777"
                     android:orientation="horizontal"
                     android:paddingBottom="8dp">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
+                        android:layout_marginEnd="8dp"
                         android:src="@android:drawable/ic_menu_recent_history"
-                        android:tint="@android:color/black"
-                        android:layout_marginEnd="8dp" />
+                        android:tint="@android:color/black" />
 
                     <TextView
                         android:id="@+id/detailTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Time: 10:00 AM - 12:00 PM"
-                        android:textSize="16sp"
-                        android:textColor="@android:color/black" />
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <!-- Location -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="#F8E777"
                     android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
+                        android:layout_marginEnd="8dp"
                         android:src="@android:drawable/ic_menu_compass"
-                        android:tint="@android:color/black"
-                        android:layout_marginEnd="8dp" />
+                        android:tint="@android:color/black" />
 
                     <TextView
                         android:id="@+id/detailLocation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Location: City Hall, New York"
-                        android:textSize="16sp"
-                        android:textColor="@android:color/black" />
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <ImageButton
                     android:id="@+id/btnSaveEvent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@android:drawable/ic_notification_overlay"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:tint="@android:color/black"
-                    android:contentDescription="Save Event" />
+                    android:contentDescription="Save Event"
+                    android:src="@android:drawable/ic_notification_overlay"
+                    android:tint="@android:color/black" />
 
 
             </LinearLayout>

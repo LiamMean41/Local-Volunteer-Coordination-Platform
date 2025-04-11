@@ -3,10 +3,12 @@
     <data>
         <!-- Binding variables can be declared here if needed -->
     </data>
+
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FFEB3B"
+        android:orientation="vertical"
         android:padding="16dp">
 
         <!-- Login Layout -->
@@ -48,8 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone"
-            android:paddingTop="24dp">
+            android:paddingTop="24dp"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/tvUserWelcome"
