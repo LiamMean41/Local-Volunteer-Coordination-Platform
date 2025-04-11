@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFEB3B">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
+        android:background="#FFEE75"
         android:elevation="4dp"
         android:orientation="vertical"
         android:padding="10dp"
@@ -31,7 +32,6 @@
             android:layout_height="wrap_content"
             android:text="Event Description"
             android:textSize="14sp" />
-
 
 
     </LinearLayout>

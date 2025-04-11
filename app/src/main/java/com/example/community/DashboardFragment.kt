@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class DashboardFragment : Fragment() {
 
@@ -15,7 +17,6 @@ class DashboardFragment : Fragment() {
     private lateinit var eventAdapter: EventAdapter
     private lateinit var eventList: LiveData<List<Event>>
     private lateinit var viewModel: EventViewModel
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,10 +28,11 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Set up RecyclerView
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        // loads events from the database
+        // Loads events from the database
         val database = EventDatabase.getInstance(requireContext())
         eventList = database.eventDAO().getAllEvents()
 
@@ -43,6 +45,12 @@ class DashboardFragment : Fragment() {
             // Update the adapter with new event data
             eventAdapter.submitList(events)
         }
+
+        // Set up the FloatingActionButton to navigate to AddEventFragment
+        val fab = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
+        fab.setOnClickListener {
+            // Navigate using the action defined in mobile_navigation.xml
+            findNavController().navigate(R.id.action_navigation_dashboard_to_addEventFragment)
+        }
     }
 }
-

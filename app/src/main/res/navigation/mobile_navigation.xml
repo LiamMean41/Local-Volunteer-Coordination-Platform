@@ -13,9 +13,16 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.community.ui.dashboard.DashboardFragment"
+        android:name="com.example.community.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard">
+
+
+        <action
+            android:id="@+id/action_navigation_dashboard_to_addEventFragment"
+            app:destination="@+id/addEventFragment" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/navigation_profile"

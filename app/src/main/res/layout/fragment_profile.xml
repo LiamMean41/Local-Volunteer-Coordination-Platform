@@ -3,10 +3,12 @@
     <data>
         <!-- Binding variables can be declared here if needed -->
     </data>
+
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FFEB3B"
+        android:orientation="vertical"
         android:padding="16dp">
 
         <!-- Login Layout -->
@@ -20,20 +22,25 @@
                 android:id="@+id/etUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Username" />
+                android:hint="Username"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/white"
                 android:text="Login" />
+
 
             <Button
                 android:id="@+id/btnSignUp"
@@ -48,8 +55,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone"
-            android:paddingTop="24dp">
+            android:paddingTop="24dp"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/tvUserWelcome"
